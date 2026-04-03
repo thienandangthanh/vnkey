@@ -16,7 +16,7 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -97,7 +97,7 @@ jobs:
   macos:
     runs-on: macos-14
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Rust (with both targets)
         uses: dtolnay/rust-toolchain@stable
@@ -167,7 +167,7 @@ jobs:
             libfcitx5utils-dev fcitx5-modules-dev \
             extra-cmake-modules gettext
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -212,7 +212,7 @@ jobs:
             fcitx5-devel extra-cmake-modules gettext rpm-build \
             libstdc++-static
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -260,7 +260,7 @@ jobs:
             build-essential cmake pkg-config \
             libibus-1.0-dev libglib2.0-dev
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -304,7 +304,7 @@ jobs:
           dnf install -y git curl cmake gcc make pkg-config \
             ibus-devel glib2-devel rpm-build
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -349,7 +349,7 @@ jobs:
           pacman -S --noconfirm base-devel git cmake rust \
             fcitx5 ibus extra-cmake-modules pkg-config zstd
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build vnkey-engine
         run: cd vnkey-engine && cargo build --release
@@ -428,7 +428,7 @@ jobs:
   nixos:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Nix
         uses: cachix/install-nix-action@v30
@@ -488,7 +488,7 @@ jobs:
     needs: [windows, macos, fcitx5-deb, fcitx5-rpm, ibus-deb, ibus-rpm, arch, nixos]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
