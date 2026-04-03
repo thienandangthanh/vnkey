@@ -73,7 +73,7 @@ jobs:
           }
 
       - name: Upload Windows artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-windows
           path: |
@@ -81,13 +81,13 @@ jobs:
 
       - name: Upload VirusTotal report
         if: hashFiles('vnkey-windows/target/release/virustotal.txt') != ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-windows-vt
           path: vnkey-windows/target/release/virustotal.txt
 
       - name: Upload Ede fonts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         if: hashFiles('ede-fonts.zip') != ''
         with:
           name: ede-fonts
@@ -144,7 +144,7 @@ jobs:
             build/VnKey.dmg
 
       - name: Upload macOS artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-macos
           path: vnkey-macos/build/VnKey.dmg
@@ -196,7 +196,7 @@ jobs:
           cpack -G DEB
 
       - name: Upload Fcitx5 DEB
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-fcitx5-deb
           path: vnkey-fcitx5/build/*.deb
@@ -241,7 +241,7 @@ jobs:
           cpack -G RPM
 
       - name: Upload Fcitx5 RPM
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-fcitx5-rpm
           path: vnkey-fcitx5/build/*.rpm
@@ -289,7 +289,7 @@ jobs:
           cpack -G DEB
 
       - name: Upload IBus DEB
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-ibus-deb
           path: vnkey-ibus/build/*.deb
@@ -333,7 +333,7 @@ jobs:
           cpack -G RPM
 
       - name: Upload IBus RPM
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-ibus-rpm
           path: vnkey-ibus/build/*.rpm
@@ -413,13 +413,13 @@ jobs:
             --zstd .PKGINFO usr/
 
       - name: Upload Fcitx5 Arch package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-fcitx5-arch
           path: vnkey-fcitx5-*.pkg.tar.zst
 
       - name: Upload IBus Arch package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-ibus-arch
           path: vnkey-ibus-*.pkg.tar.zst
@@ -471,13 +471,13 @@ jobs:
           tar -czf vnkey-ibus-${{ github.ref_name || '1.0.1' }}-nixos-x86_64.tar.gz -C nix-ibus-pkg usr/
 
       - name: Upload Fcitx5 NixOS package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-fcitx5-nixos
           path: vnkey-fcitx5-*-nixos-*.tar.gz
 
       - name: Upload IBus NixOS package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: vnkey-ibus-nixos
           path: vnkey-ibus-*-nixos-*.tar.gz
